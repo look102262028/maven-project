@@ -16,5 +16,17 @@ pipeline {
                 }
             }
         }
+
+        stage('Deploy to staging'){
+            steps {
+                build job:'deploy-to-staging'
+            }
+            post {
+                success {
+                    echo '开始存档...'
+                    archiveArtifacts artifacts: '**/target/*.war'
+                }
+            }
+        }
     }
 }
