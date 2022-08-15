@@ -1,4 +1,4 @@
-FROM --platform=linux/amd64 tomcat:8.0
+FROM  arm64v8/tomcat
 
 ADD  ./webapp/target/*.war /usr/local/tomcat/webapps/
 
